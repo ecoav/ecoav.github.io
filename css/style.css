@@ -84,3 +84,24 @@ section {
   opacity: 1;
   transform: translateY(0);
 }
+
+.simple-header {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.music-section,
+.projects,
+.contact {
+  max-width: 900px;
+  margin: auto;
+  padding: 40px;
+}
+
+.track, .project {
+  background: #fff;
+  padding: 30px;
+  margin-bottom: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
