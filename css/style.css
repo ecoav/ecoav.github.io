@@ -2,78 +2,81 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  background: #f4efe9;
-  color: #2e2a28;
+  background: #0f0f12;
+  color: #eee;
   line-height: 1.6;
 }
 
-.hero {
-  height: 100vh;
-  background: linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.4)),
-              url("../assets/hero.jpg") center/cover no-repeat;
-  color: white;
-  display: flex;
-  flex-direction: column;
-}
-
-nav {
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  padding: 20px 60px;
   display: flex;
   justify-content: space-between;
-  padding: 30px 60px;
+  align-items: center;
+  backdrop-filter: blur(12px);
+  background: rgba(0,0,0,0.5);
+  z-index: 100;
 }
 
-nav ul {
-  display: flex;
-  gap: 25px;
-  list-style: none;
-}
-
-nav a {
+.navbar a {
   color: white;
+  margin-left: 25px;
   text-decoration: none;
-  font-weight: 500;
+  transition: 0.3s;
 }
 
-.hero-content {
-  margin: auto;
-  text-align: center;
-  max-width: 700px;
+.navbar a:hover {
+  color: #d4b98c;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: url("../assets/hero.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 80px;
 }
 
 .hero h1 {
-  font-family: 'Playfair Display', serif;
-  font-size: 3.8rem;
+  font-size: 4rem;
+  max-width: 600px;
 }
 
 .hero p {
+  max-width: 500px;
   margin-top: 20px;
-  font-size: 1.2rem;
   opacity: 0.9;
 }
 
 .btn {
   display: inline-block;
   margin-top: 30px;
-  padding: 14px 32px;
-  background: #ffffff;
-  color: #222;
+  padding: 14px 28px;
+  background: #d6b98c;
+  color: #000;
   text-decoration: none;
-  border-radius: 40px;
-  transition: 0.3s;
+  border-radius: 30px;
+  font-weight: bold;
 }
 
-.btn:hover {
-  background: #ddd;
+/* SECCIONES */
+.section {
+  padding: 120px 15%;
 }
 
-section {
-  padding: 80px 15%;
+.section h1 {
+  margin-bottom: 20px;
 }
 
+/* ANIMACIONES */
 .fade {
   opacity: 0;
   transform: translateY(40px);
@@ -83,25 +86,4 @@ section {
 .fade.show {
   opacity: 1;
   transform: translateY(0);
-}
-
-.simple-header {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.music-section,
-.projects,
-.contact {
-  max-width: 900px;
-  margin: auto;
-  padding: 40px;
-}
-
-.track, .project {
-  background: #fff;
-  padding: 30px;
-  margin-bottom: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
 }
