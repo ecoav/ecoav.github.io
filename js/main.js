@@ -1,11 +1,11 @@
-const faders = document.querySelectorAll('.fade');
-
-const appear = new IntersectionObserver(entries => {
+const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
-      entry.target.classList.add('show');
+      entry.target.classList.add("show");
     }
   });
 });
 
-faders.forEach(el => appear.observe(el));
+document.querySelectorAll(".fade").forEach(el => {
+  observer.observe(el);
+});
