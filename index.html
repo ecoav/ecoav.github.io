@@ -1,105 +1,197 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Érik — Artista</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Erik Cordero</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css">
+<style>
+:root {
+  --fog-color1: rgba(200, 200, 200, 0.08);
+  --fog-color2: rgba(255, 255, 255, 0.02);
+  --accent: #cbbfaf;
+  --text-main: #e6e1da;
+}
+body {
+  margin: 0;
+  background-color: #0b0b0b;
+  color: var(--text-main);
+  font-family: 'Georgia', serif;
+  overflow-x: hidden;
+}
+canvas#fog {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -1;
+}
+nav {
+  position: fixed;
+  top: 0; width: 100%;
+  background: transparent;
+  color: var(--text-main);
+  display: flex; justify-content: space-between;
+  padding: 1rem 2rem;
+  z-index: 10;
+}
+nav a { color: var(--text-main); text-decoration: none; margin-left: 1rem; }
+nav a:hover { color: var(--accent); }
+section {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  flex-direction: column; text-align: center;
+}
+.hero {
+  background: url('https://source.unsplash.com/1600x900/?dark,cinematic,portrait') center/cover no-repeat;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.55);
+}
+.hero h1, .hero h2 {
+  position: relative; z-index: 2;
+}
+.placeholder {
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  width: 80%; height: 60vh;
+  display: flex; align-items: center; justify-content: center;
+  margin-top: 2rem; color: #aaa; font-style: italic;
+}
+footer {
+  background: #111;
+  padding: 2rem;
+  text-align: center;
+  color: #7a756f;
+}
+footer a { color: var(--accent); text-decoration: none; }
+footer a:hover { color: #fff; }
+#player {
+  position: fixed;
+  bottom: 1rem; right: 1rem;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(8px);
+  border-radius: 30px;
+  padding: 0.6rem 1.2rem;
+  display: flex; align-items: center;
+  gap: 0.5rem;
+  color: var(--text-main);
+  box-shadow: 0 0 15px rgba(255,255,255,0.05);
+  transition: all 0.3s ease;
+  z-index: 100;
+}
+#player:hover {
+  box-shadow: 0 0 20px rgba(255,255,255,0.2);
+}
+#player span {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 1s ease, transform 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+</style>
 </head>
-
 <body>
+<canvas id="fog"></canvas>
 
-<header class="navbar">
-  <div class="logo">Érik</div>
-  <nav>
-    <a data-section="home">Inicio</a>
-    <a data-section="about">Sobre mí</a>
-    <a data-section="music">Música</a>
-    <a data-section="projects">Proyectos</a>
-    <a data-section="contact">Contacto</a>
-  </nav>
-</header>
-
-<main>
-
-<section id="home" class="section hero active">
-  <div class="hero-content">
-    <h1>Crear. Sentir. Existir.</h1>
-    <p>Un espacio donde la música, el arte y la emoción se encuentran.</p>
-    <button data-scroll="about">Descubrir</button>
+<nav>
+  <strong>Erik Cordero</strong>
+  <div>
+    <a href="https://open.spotify.com" target="_blank">Spotify</a>
+    <a href="https://youtube.com" target="_blank">YouTube</a>
   </div>
+</nav>
+
+<section class="hero">
+  <h1>Erik Cordero</h1>
+  <h2>Lost in You</h2>
 </section>
 
-<section id="about" class="section">
-  <h2>Sobre mí</h2>
-  <p>
-    Soy un artista independiente que explora emociones a través del sonido,
-    el diseño y la palabra. Cada proyecto nace desde la introspección,
-    la calma y el deseo de conectar.
-  </p>
-
-  <div class="stats">
-    <div><strong>+20</strong><span>Canciones</span></div>
-    <div><strong>5</strong><span>Años creando</span></div>
-    <div><strong>100%</strong><span>Independiente</span></div>
-  </div>
+<section class="fade-in">
+  <h2>Sobre el Proyecto</h2>
+  <p>Un viaje sonoro que se mueve entre la penumbra y la emoción. <em>Lost in You</em> es un proyecto R&B cinematográfico, íntimo y sincero, donde cada nota se disuelve en la neblina.</p>
+  <div class="placeholder">[Imagen artística DALL·E — Hero Portrait]</div>
 </section>
 
-<section id="music" class="section">
-  <h2>Música</h2>
-  <p>Explora mis últimos lanzamientos y demos.</p>
-
-  <div class="music-grid">
-    <div class="track">
-      <h3>Luz Tardía</h3>
-      <audio controls>
-        <source src="assets/demo.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-
-    <div class="track">
-      <h3>Noches Lentas</h3>
-      <audio controls>
-        <source src="assets/demo.mp3" type="audio/mpeg">
-      </audio>
-    </div>
-  </div>
+<section class="fade-in">
+  <h2>El Álbum</h2>
+  <p>Un paisaje sonoro para los corazones que sienten en silencio. Diseñado con la estética oscura de d4vd y el alma de Erik Cordero.</p>
+  <div class="placeholder">[Imagen artística DALL·E — Lost in You Cover]</div>
 </section>
 
-<section id="projects" class="section">
-  <h2>Proyectos</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Proyecto Sonoro</h3>
-      <p>Exploración de texturas, ambient y melodía.</p>
-    </div>
-
-    <div class="card">
-      <h3>Visual Identity</h3>
-      <p>Diseño visual inspirado en emociones y silencio.</p>
-    </div>
-
-    <div class="card">
-      <h3>Live Sessions</h3>
-      <p>Sesiones íntimas grabadas en estudio.</p>
-    </div>
-  </div>
+<section class="fade-in">
+  <h2>Visual Concept</h2>
+  <div class="placeholder">[Imagen artística DALL·E — Neblina / Abstract Background]</div>
 </section>
 
-<section id="contact" class="section">
-  <h2>Contacto</h2>
-  <p>¿Quieres colaborar o simplemente hablar?</p>
-  <form>
-    <input type="text" placeholder="Nombre">
-    <input type="email" placeholder="Email">
-    <textarea placeholder="Mensaje"></textarea>
-    <button>Enviar</button>
-  </form>
-</section>
+<div id="player">
+  <span>🎧 Lost in You — Erik Cordero</span>
+</div>
 
-</main>
+<footer>
+  <small>© 2025 Erik Cordero • <a href="https://open.spotify.com">Spotify</a> • <a href="https://youtube.com">YouTube</a></small>
+</footer>
 
-<script src="js/app.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<script>
+const canvas = document.getElementById('fog');
+const ctx = canvas.getContext('2d');
+let w, h, particles = [];
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+  particles = Array(100).fill().map(() => ({
+    x: Math.random() * w,
+    y: Math.random() * h,
+    r: Math.random() * 3 + 1,
+    dx: (Math.random() - 0.5) * 0.2,
+    dy: (Math.random() - 0.5) * 0.2
+  }));
+}
+function drawFog() {
+  ctx.clearRect(0, 0, w, h);
+  const gradient = ctx.createLinearGradient(0, 0, w, h);
+  gradient.addColorStop(0, 'rgba(255,255,255,0.02)');
+  gradient.addColorStop(1, 'rgba(200,200,200,0.05)');
+  ctx.fillStyle = gradient;
+  ctx.fillRect(0, 0, w, h);
+  ctx.fillStyle = 'rgba(255,255,255,0.03)';
+  particles.forEach(p => {
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+    p.x += p.dx; p.y += p.dy;
+    if (p.x < 0 || p.x > w) p.dx *= -1;
+    if (p.y < 0 || p.y > h) p.dy *= -1;
+  });
+  requestAnimationFrame(drawFog);
+}
+window.addEventListener('resize', resize);
+resize();
+drawFog();
+
+gsap.registerPlugin(ScrollTrigger);
+gsap.utils.toArray('.fade-in').forEach((el) => {
+  gsap.fromTo(el, { opacity: 0, y: 50 }, {
+    opacity: 1, y: 0, duration: 1.5,
+    scrollTrigger: {
+      trigger: el,
+      start: 'top 80%',
+      toggleActions: 'play none none reverse'
+    }
+  });
+});
+</script>
 </body>
 </html>
