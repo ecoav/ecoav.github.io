@@ -2,10 +2,9 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Érik — Artista & Creador</title>
+  <title>Érik — Artista</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
 </head>
 
 <body>
@@ -13,32 +12,55 @@
 <header class="navbar">
   <div class="logo">Érik</div>
   <nav>
-    <a href="index.html">Inicio</a>
-    <a href="music.html">Música</a>
-    <a href="projects.html">Proyectos</a>
-    <a href="contact.html">Contacto</a>
+    <button data-page="home">Inicio</button>
+    <button data-page="music">Música</button>
+    <button data-page="projects">Proyectos</button>
+    <button data-page="contact">Contacto</button>
   </nav>
 </header>
 
-<section class="hero">
-  <div class="hero-content fade">
-    <h1>Crear. Sentir. Expresar.</h1>
-    <p>
-      Un espacio donde la música, el arte y la emoción se encuentran.
-      Historias contadas en forma de sonido, imagen y silencio.
-    </p>
-    <a class="btn" href="music.html">Escuchar ahora</a>
-  </div>
-</section>
+<main id="app">
 
-<section class="info fade">
-  <h2>Sobre mí</h2>
-  <p>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-  </p>
-</section>
+  <!-- HOME -->
+  <section id="home" class="page active">
+    <div class="hero">
+      <h1>Crear. Sentir. Respirar.</h1>
+      <p>Una experiencia artística entre sonido, emoción y estética.</p>
+      <button class="cta">Explorar</button>
+    </div>
+  </section>
 
+  <!-- MUSIC -->
+  <section id="music" class="page">
+    <h2>Música</h2>
+    <p>Explorando sonidos, texturas y emociones.</p>
+
+    <iframe
+      src="https://w.soundcloud.com/player/?url=https://soundcloud.com/TU_USUARIO/TU_TEMA"
+      allow="autoplay"
+      frameborder="0">
+    </iframe>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="page">
+    <h2>Proyectos</h2>
+    <div class="cards">
+      <div class="card">🎵 Proyecto musical personal</div>
+      <div class="card">🎨 Diseño visual y concepto</div>
+      <div class="card">💻 Desarrollo creativo</div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="page">
+    <h2>Contacto</h2>
+    <p>¿Colaboramos?</p>
+    <p>Email: contacto@tudominio.com</p>
+  </section>
+
+</main>
+
+<script src="js/app.js"></script>
 </body>
 </html>
